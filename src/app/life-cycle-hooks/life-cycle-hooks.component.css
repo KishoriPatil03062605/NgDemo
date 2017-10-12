@@ -1,0 +1,13 @@
+.parent{
+    color: darkblue;
+}
+.child {
+    color: lightblue;
+}
+.list-container {
+    height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-self: center;
+    border: 1px solid #efefef;
+}

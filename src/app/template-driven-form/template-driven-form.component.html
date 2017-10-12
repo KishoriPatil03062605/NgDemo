@@ -1,0 +1,58 @@
+<form #templateForm="ngForm">
+    <div class="row">
+        <label class="control-label col-xl-3 cl-lg-3 col-md-3 col-sm-3 col-xs-6">Text</label>
+        <input class="input input-sm col-xl-3 cl-lg-3 col-md-3 col-sm-3 col-xs-6" type="text" id="templateModel.text" required [(ngModel)]="templateModel.text"
+            name="templateModel.text">
+    </div>
+    <br/>
+    <div class="row">
+        <label class="control-label col-xl-3 cl-lg-3 col-md-3 col-sm-3 col-xs-6">Radio</label>
+        <div class="col-xl-1 cl-lg-1 col-md-1 col-sm-1 col-xs-3">
+            <input class="input input-sm" type="radio" id="radio1" required value="Y" [(ngModel)]="templateModel.radioSelection" name="templateModel.radioSelection">
+            <label class="control-label">Y</label>
+        </div>
+        <div class="col-xl-1 cl-lg-1 col-md-1 col-sm-1 col-xs-3">
+            <input class="input input-sm" type="radio" id="radio2" required value="N" [(ngModel)]="templateModel.radioSelection" name="templateModel.radioSelection">
+            <label class="control-label">N</label>
+        </div>
+
+    </div>
+    <br/>
+    <div class="row">
+        <label class="control-label col-xl-3 cl-lg-3 col-md-3 col-sm-3 col-xs-6">Dropdown</label>
+        <select class="input input-sm col-xl-3 cl-lg-3 col-md-3 col-sm-3 col-xs-6" [(ngModel)]="templateModel.dropdownSelection"
+            name="templateModel.dropdownSelection">
+          <option value="default" selected>default</option>
+          <option value="value1">value1</option>
+          <option value="value2">value2</option>
+          <option value="value3">value3</option>
+        </select>
+    </div>
+    <br/>
+    <div class="row">
+            <div class="col-xl-6 cl-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <button type="button" class="btn btn-default" (click)="onSubmit()">HTML to Component (SUBMIT)</button>
+                    <button type="button" class="btn btn-default" (click)="onReset()">Component to HTML (RESET)</button>
+            </div>
+       
+    </div>
+</form>
+<br/>
+<hr class="pull-left" />
+<br/>
+<br/>
+<div class="row" [hidden]="!isSubmitted">
+    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1">
+    </div>
+    <pre class="col-xl-10 cl-lg-10 col-md-10 col-sm-10 col-xs-12">
+        Following is the submitted form:
+          Text     : {{templateModel.text}}
+          Radio    : {{templateModel.radioSelection}}
+          Dropdown : {{templateModel.dropdownSelection}}
+      </pre>
+</div>
+<div class="row text-center" [hidden]="isSubmitted">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        Form is not yet submitted
+    </div>
+</div>

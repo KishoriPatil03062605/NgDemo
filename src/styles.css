@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+.boundry{
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+}
+.active{
+    color: white !important;
+    font-weight: bold;
+    background-color: #5CC3F7;
+}
+li{
+    cursor: pointer;
+}
+table, tr, td, th{
+    border: 1px solid black;
+    padding: 10px;
+    min-width: 90%; 
+}
+
+hr{
+    width: 95%;
+}

@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="container col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="panel panel-info">
+      <div class="panel-heading">Parent Component</div>
+      <div class="panel-body container">
+        <div class="row">
+          <div class="container col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12">
+            <table class="table table-bordered table-striped table-responsive">
+              <tr>
+                <th>
+                  PUBLISH TO CHILD
+                </th>
+                <th>
+                  SUBSCRIBE TO CHILD
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  <div class="row">
+                    <label for="parentText1" class="control-label col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6">Property Binding (pass by value) using @Input</label>
+                    <input class="input input-sm col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-6" type="text" name="parentText1" [(ngModel)]="parentText1">
+                  </div>
+                  <br/>
+                  <div class="row">
+                    <label class="control-label col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6" for="parentObject.parentKey">Property Binding (pass by reference) using @Input</label>
+                    <input class="input input-sm col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-6" type="text" name="parentObject.parentKey" [(ngModel)]="parentObject.parentKey">
+                  </div>
+                  <br/>
+                  <div class="row">
+                      <label class="control-label col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6" for="parentText2">Publish using Observer</label>
+                    <input class="input input-sm col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-6" type="text" name="parentText2" [(ngModel)]="parentText2">
+                    <button (click)="publishNextVal(parentText2)" type="button" 
+                    class="btn btn-sm btn-default col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-6"
+                    >Publish</button>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <label for="parentText3">Event caught</label>
+                    <input class="input input-sm" name="parentText3" name="parentText3" [(ngModel)]="parentText3">
+                  </div>
+                  <br/>
+                  <div>
+                    <label for="parentText4">Subject Subscription 1</label>
+                    <input class="input input-sm" name="parentText4" name="parentText4" [(ngModel)]="parentText4">
+                  </div>
+                  <br/>
+
+                  <div>
+                    <label for="parentText5">Subject Subscription 2</label>
+                    <input class="input input-sm" name="parentText5" name="parentText5" [(ngModel)]="parentText5">
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <br/>
+        <br/>
+        <app-child [childText1]="parentText1" [childObject]="parentObject" #child (eventEmitter)="getFromChild($event)"></app-child>
+      </div>
+    </div>
+  </div>
+</div>

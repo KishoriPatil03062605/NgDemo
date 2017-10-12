@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <br/><br/>
+  <div class="panel panel-info">
+    <div class="panel-heading">App Component</div>
+    <div class="panel-body row">
+      <div class="container col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+          <label class="pull-left control-label col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12" for="route">dynamic-route fragment value</label>
+          <input class="input input-sm col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12" name="route" [(ngModel)]="route" type="text">
+        </div>
+
+        <br/>
+        <br/>
+        <nav class="navbar row">
+          <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12 container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav nav-tabs">
+                <li routerLink="/template-driven-form" routerLinkActive="active"><a>template-driven-form</a></li>
+                <li routerLink="/reactive-form" routerLinkActive="active"><a>reactive-form</a> </li>
+                <li routerLink="/dynamic-route/{{route}}" routerLinkActive="active"><a>dynamic-route</a> </li>
+                <li routerLink="/life-cycle-hooks" routerLinkActive="active"><a>life-cycle-hooks</a></li>
+                <li routerLink="/parent-child" routerLinkActive="active"> <a>parent <i class="glyphicon glyphicon-resize-horizontal"></i> child</a></li>
+                <li routerLink="/pipe-directives" routerLinkActive="active"> <a>pipe-directives</a></li>
+                <li routerLink="/any-path" routerLinkActive="active"> <a>redirect-to</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div class="row">
+          <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12 container-fluid">
+            <div class="row">
+              <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12 container-fluid">
+                <div class="panel panel-info">
+                  <div class="panel-heading">Router Outlet</div>
+                  <div class="panel-body conatiner">
+                    <router-outlet></router-outlet>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>

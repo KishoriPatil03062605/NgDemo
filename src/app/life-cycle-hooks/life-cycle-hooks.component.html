@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12 container">
+
+    <form #lchForm="ngForm" novalidate>
+      <div class="row">
+        <label class="control-label col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-6">  OnChanges </label>
+        <input autocomplete="false" autofocus="true" spellcheck="false" class="input input-sm col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6"
+          name="onChangeValue" [(ngModel)]="onChangeValue" type="text">
+        <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1">
+        </div>
+        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-xs-12 list-container">
+          <ul class="list-group">
+            <li class="list-group-item" [ngClass]="{'parent' : isParent(lchook), 'child' : !isParent(lchook)}" *ngFor="let lchook of lifeCylcehooksService.lCHooks; let i = index">
+              {{i + ')' + ' ' + lchook}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </form>
+
+    <br/>
+    <div class="row text-center">
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4"></div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+        <h4 class="pull-left">(using ngFor directive with ngClass)</h4>
+      </div>
+    </div>
+    <hr>
+    <app-demo-child [onChangeValue]="onChangeValue"></app-demo-child>
+  </div>
+</div>

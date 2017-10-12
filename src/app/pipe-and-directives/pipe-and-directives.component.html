@@ -1,0 +1,23 @@
+<div>
+  <div>
+      <label for="containsChars"></label>
+      <input class="input input-sm" type="text" [(ngModel)]="containsChars" name="containsChars">
+  </div>
+  <br/>
+  <div>
+      <label>Select Gender</label>
+      <select class="input input-sm" [(ngModel)]="gender" name="gender">
+        <option value="Any" selected>Any</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+  </div>
+  <br/>
+  <div>
+    Following is the list as per you filter:
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor = "let person of persons | CustomPipe : containsChars : gender">{{person.pname}}</li>
+    </ul>
+  </div>
+  
+</div>

@@ -1,0 +1,28 @@
+<form novalidate [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+  <div class="row">
+    <label class="pull-left control-label col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12" for="name">Name</label>
+    <input class="input input-sm col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12" type="text" name="name" placeholder="Name"
+      formControlName="name">
+  </div>
+  <br/>
+  <div class="row">
+    <label class="pull-left control-label col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12" for="email">Email ID</label>
+    <input class="input input-sm col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12" type="text" type="email" name="email" placeholder="Email ID"
+      formControlName="email">
+  </div>
+  <br/>
+  <div class="row">
+    <div class="pull-left col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+      <button type="submit" [disabled]="!userForm.valid" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+</form>
+<div [hidden]="!isSubmitted">
+  <pre>
+      Your information
+      Username : {{user.name}}
+      Email    : {{user.email}}
+    </pre>
+</div>
