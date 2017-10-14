@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../app/model/user.model';
+import {
+  FormArray, FormGroup, Validators,
+  FormControl
+} from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -9,30 +11,35 @@ import { User } from '../../app/model/user.model';
 })
 export class ReactiveFormComponent implements OnInit {
 
-  user: User;
+  isSubmitted = false;
 
-  isSubmitted= false;
+  signUpForm: FormGroup;
 
-  userForm: FormGroup;
+  genders = ['male', 'female'];
 
-  constructor( private fb: FormBuilder) {
-    this.createForm();
-    this.user =  new User();
-   }
-   createForm() {
-    this.userForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required]
-    });
+  hobbyControls: any[];
+
+  constructor() {
   }
 
   ngOnInit() {
-  }
-  onSubmit() {
-    const formModel = this.userForm.value;
-    this.user.name = formModel.name as string;
-    this.user.email = formModel.email as string;
-    this.isSubmitted = true;
+    this.signUpForm = new FormGroup({
+      'userData': new FormGroup({
+        'name': new FormControl(null, Validators.required),
+        'email': new FormControl(null, [Validators.required, Validators.email]),
+      }),
+      'gender': new FormControl('male'),
+      'hobbies': new FormArray([])
+    });
   }
 
+  onSubmit() {
+    this.isSubmitted = true;
+    console.log(this.signUpForm);
+  }
+  onAddHobby() {
+    const control = new FormControl(null, Validators.required);
+    (<FormArray>this.signUpForm.get('hobbies')).push(control);
+    this.hobbyControls =  (<FormArray>this.signUpForm.get('hobbies')).controls;
+  }
 }

@@ -10,6 +10,8 @@ export class ParentChildComponent implements OnInit {
 
   parentText1: string;
 
+  parentText2: string;
+
   parentText3: string;
 
   parentText4: string;

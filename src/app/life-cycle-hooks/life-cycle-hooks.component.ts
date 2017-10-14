@@ -13,7 +13,7 @@ export class LifeCycleHooksComponent implements OnInit, OnChanges, OnDestroy, Do
   AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit {
 
   onChangeValue: number;
-  constructor(private lifeCylcehooksService: LifeCyclehooksService) {
+  constructor(public lifeCylcehooksService: LifeCyclehooksService) {
     this.lifeCylcehooksService.lCHooks.push('parent constructor');
    }
   ngOnChanges() {

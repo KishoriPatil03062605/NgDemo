@@ -29,13 +29,16 @@ const appRoutes: Routes = [
   {
     path: 'dynamic-route/:route',
     component: DynamicRouteComponent,
-    canActivate : [ActivateResolveService],
-    resolve: { resolveValue : ActivateResolveService
+    canActivate: [ActivateResolveService],
+    resolve: {
+      resolveValue: ActivateResolveService
     },
-    canActivateChild : [ActivateResolveService],
+    canActivateChild: [ActivateResolveService],
     children: [
-      { path: ':childRoute',
-      component: ChildRouteComponent }]
+      {
+        path: ':childRoute',
+        component: ChildRouteComponent
+      }]
   },
   {
     path: 'life-cycle-hooks',
@@ -72,7 +75,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes,
-      {enableTracing: false, useHash: true}
+      { enableTracing: false, useHash: true }
     )
   ],
   providers: [LifeCyclehooksService, PubSubService, ActivateResolveService],

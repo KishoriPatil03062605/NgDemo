@@ -9,6 +9,8 @@ import { Person } from '../../app/model/person.model';
 export class PipeAndDirectivesComponent implements OnInit {
 
   persons: Person[];
+  gender: string;
+  containsChars: string;
 
   constructor() {
     this.persons = [new Person('Kishori', 'Female'),
