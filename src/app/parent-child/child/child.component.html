@@ -1,55 +1,85 @@
-<div class="panel panel-info">
-    <div class="panel-heading">Child Component</div>
-    <div class="panel-body">
-        <table class="table table-bordered table-justified table-striped table-responsive">
-            <tr>
-                <th>
-                    SUBSCRIBE TO PARENT
-                </th>
-                <th>
-                    PUBLISH TO PARENT
-                </th>
+<div class="row">
+    <div class="container col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">Child Component</div>
+            <div class="panel-body">
+                <table class="table table-bordered table-justified table-striped table-responsive">
+                    <tr>
+                        <th>
+                            SUBSCRIBE TO PARENT
+                        </th>
+                        <th>
+                            PUBLISH TO PARENT
+                        </th>
 
-            </tr>
-            <tr>
-                <td>
-                    <div>
-                        <label for="childText1">Property Binding (recieved by value) using @Input</label>
-                        <input class="input input-sm" type="text" name="childText1" [(ngModel)]="childText1">
-                    </div>
-                    <br/>
-                    <div>
-                        <label for="childObject">Property Binding (recieved by reference) using @Input</label>
-                        <input class="input input-sm" type="text" name="childObject" [(ngModel)]="childObject.parentKey">
-                    </div>
-                    <br/>
-                    <div>
-                        <label for="childText2">Observable Subscription 1</label>
-                        <input class="input input-sm" type="text" name="childText2" [(ngModel)]="childText2">
-                    </div>
-                    <br/>
-                    <div>
-                        <label for="childText5">Observable Subscription 2</label>
-                        <input class="input input-sm" type="text" name="childText5" [(ngModel)]="childText5">
-                    </div>
-                    <br/>
-                    <button (click)="requestMultipleSubscription()" type="button" class="btn btn-default">Request Multiple Subscriptions</button>
-                </td>
-                <td>
-                    <div>
-                        <label for="childText3">Event to be emitted using EventEmitter/@Output</label>
-                        <input class="input input-sm" type="text" name="childText3" [(ngModel)]="childText3">
-                        <button (click)="emitEvent(childText3)" type="button" class="btn btn-default">Emit Event</button>
-                    </div>
-                    <br/>
-                    <div>
-                        <label for="childText4">Publish using Subject</label>
-                        <input class="input input-sm" type="text" name="childText4" [(ngModel)]="childText4">
-                        <button (click)="publishNextVal(childText4)" type="button" class="btn btn-default">Publish</button>
-                    </div>
-                    <br/>
-                </td>
-            </tr>
-        </table>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <label class="control-label col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6" for="childText1">Property Binding (recieved by value) using @Input</label>
+                                        <input class="input input-sm" type="text" name="childText1" [(ngModel)]="childText1">
+                                    </div>
+                                    <br/>
+                                    <div class="row">
+                                        <label class="control-label col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6" for="childObject">Property Binding (recieved by reference) using @Input</label>
+                                        <input class="input input-sm" type="text" name="childObject" [(ngModel)]="childObject.parentKey">
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <label class="control-label col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6" for="childText2">Observable Subscription 1</label>
+                                        <input class="input input-sm" type="text" name="childText2" [(ngModel)]="childText2">
+                                    </div>
+                                    <br/>
+                                    <div class="row">
+                                        <label class="control-label col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6" for="childText5">Observable Subscription 2</label>
+                                        <input class="input input-sm" type="text" name="childText5" [(ngModel)]="childText5">
+                                    </div>
+                                    <br/>
+                                    <button (click)="requestMultipleSubscription()" type="button" class="btn btn-default">Request Multiple Subscriptions</button>
+
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <label class="control-label col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6" for="childText3">Event to be emitted using EventEmitter/@Output</label>
+                                        <div class="input-group col-xl-5 col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                            <input class="input input-sm" type="text" name="childText3" [(ngModel)]="childText3">
+                                            <div class="input-group-btn">
+                                                <button (click)="emitEvent(childText3)" type="button" class="btn btn-sm btn-default">Emit Event</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <label class="control-label col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6" for="childText4">Publish using Subject</label>
+                                        <div class="input-group col-xl-5 col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                            <input class="input input-sm" type="text" name="childText4" [(ngModel)]="childText4">
+                                            <div class="input-group-btn">
+                                                <button (click)="publishNextVal(childText4)" type="button" class="btn btn-sm btn-default">
+                                                    <span class="control-label">Publish It !</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </div>

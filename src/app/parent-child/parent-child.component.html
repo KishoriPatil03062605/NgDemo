@@ -16,39 +16,55 @@
               </tr>
               <tr>
                 <td>
-                  <div class="row">
-                    <label for="parentText1" class="control-label col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6">Property Binding (pass by value) using @Input</label>
-                    <input class="input input-sm col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-6" type="text" name="parentText1" [(ngModel)]="parentText1">
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <div class="row">
+                        <label for="parentText1" class="control-label col-xl-7 col-lg-7 col-md-7 col-sm-7 col-xs-6">Property Binding (pass by value) using @Input</label>
+                        <input class="input input-sm col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-6" type="text" name="parentText1" [(ngModel)]="parentText1">
+                      </div>
+                      <br/>
+                      <div class="row">
+                        <label class="control-label col-xl-7 col-lg-7 col-md-7 col-sm-7 col-xs-6" for="parentObject.parentKey">Property Binding (pass by reference) using @Input</label>
+                        <input class="input input-sm col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-6" type="text" name="parentObject.parentKey" [(ngModel)]="parentObject.parentKey">
+                      </div>
+                    </div>
                   </div>
-                  <br/>
-                  <div class="row">
-                    <label class="control-label col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6" for="parentObject.parentKey">Property Binding (pass by reference) using @Input</label>
-                    <input class="input input-sm col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-6" type="text" name="parentObject.parentKey" [(ngModel)]="parentObject.parentKey">
-                  </div>
-                  <br/>
-                  <div class="row">
-                      <label class="control-label col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6" for="parentText2">Publish using Observer</label>
-                    <input class="input input-sm col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-6" type="text" name="parentText2" [(ngModel)]="parentText2">
-                    <button (click)="publishNextVal(parentText2)" type="button" 
-                    class="btn btn-sm btn-default col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-6"
-                    >Publish</button>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <div class="row">
+                        <label class="control-label col-xl-7 col-lg-7 col-md-7 col-sm-7 col-xs-6" for="parentText2">Publish using Observer</label>
+                        <div class="input-group col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                          <input class="input input-sm" type="text" name="parentText2" [(ngModel)]="parentText2">
+                          <div class="input-group-btn">
+                            <button (click)="publishNextVal(parentText2)" class="btn btn-sm btn-default" type="button">Publish It !</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </td>
                 <td>
-                  <div>
-                    <label for="parentText3">Event caught</label>
-                    <input class="input input-sm" name="parentText3" name="parentText3" [(ngModel)]="parentText3">
-                  </div>
-                  <br/>
-                  <div>
-                    <label for="parentText4">Subject Subscription 1</label>
-                    <input class="input input-sm" name="parentText4" name="parentText4" [(ngModel)]="parentText4">
-                  </div>
-                  <br/>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <div class="row">
+                        <label class="control-label col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6" for="parentText3">Event caught</label>
+                        <input class="input input-sm" name="parentText3" name="parentText3" [(ngModel)]="parentText3">
+                      </div>
 
-                  <div>
-                    <label for="parentText5">Subject Subscription 2</label>
-                    <input class="input input-sm" name="parentText5" name="parentText5" [(ngModel)]="parentText5">
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <div class="row">
+                        <label class="control-label col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6" for="parentText4">Subject Subscription 1</label>
+                        <input class="input input-sm" name="parentText4" name="parentText4" [(ngModel)]="parentText4">
+                      </div>
+                      <br/>
+                      <div class="row">
+                        <label class="control-label col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6" for="parentText5">Subject Subscription 2</label>
+                        <input class="input input-sm" name="parentText5" name="parentText5" [(ngModel)]="parentText5">
+                      </div>
+                    </div>
                   </div>
                 </td>
               </tr>

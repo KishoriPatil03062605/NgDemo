@@ -1,23 +1,38 @@
-<div>
-  <div>
-      <label for="containsChars"></label>
-      <input class="input input-sm" type="text" [(ngModel)]="containsChars" name="containsChars">
+<div class="row">
+  <label class="col-lg-1 col-xl-1 col-md-1 col-sm-1 col-xs-1" for="containsChars">Name</label>
+  <input class="input input-sm input input-sm col-lg-3 col-xl-3 col-md-3 col-sm-3 col-xs-3" type="text" [(ngModel)]="containsChars"
+    name="containsChars">
+  <label class="col-lg-1 col-xl-1 col-md-1 col-sm-1 col-xs-1" for="gender">Select Gender</label>
+  <select class="input input-sm col-lg-3 col-xl-3 col-md-3 col-sm-3 col-xs-3" [(ngModel)]="gender" name="gender">
+    <option value="Any" selected>Any</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+  </select>
+</div>
+<br/>
+<label class="control-label"> Following is the list as per you filter</label>
+<br/>
+<div class="row text-center">
+
+  <div class="col-lg-10 col-xl-10 col-md-10 col-sm-10 col-xs-10 text-center">
+    <table class="table table-responsive table-bordered table-striped">
+      <tr>
+        <th class="text-center">
+          Name
+        </th>
+        <th class="text-center">
+          Gender
+        </th>
+      </tr>
+      <tr *ngFor="let person of persons | CustomPipe : containsChars : gender">
+        <td>
+          {{person.pname}}
+        </td>
+        <td>
+          {{person.gender}}
+        </td>
+      </tr>
+    </table>
   </div>
-  <br/>
-  <div>
-      <label>Select Gender</label>
-      <select class="input input-sm" [(ngModel)]="gender" name="gender">
-        <option value="Any" selected>Any</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
-  </div>
-  <br/>
-  <div>
-    Following is the list as per you filter:
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor = "let person of persons | CustomPipe : containsChars : gender">{{person.pname}}</li>
-    </ul>
-  </div>
-  
+
 </div>
