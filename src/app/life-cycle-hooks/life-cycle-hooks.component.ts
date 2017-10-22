@@ -1,13 +1,14 @@
 import { LifeCyclehooksService } from './../services/life-cyclehooks.service';
 import {
   Component, OnInit, OnChanges, OnDestroy, DoCheck, AfterContentChecked,
-  AfterContentInit, AfterViewChecked, AfterViewInit
+  AfterContentInit, AfterViewChecked, AfterViewInit// , ViewEncapsulation
 } from '@angular/core';
 
 @Component({
   selector: 'app-life-cycle-hooks',
   templateUrl: './life-cycle-hooks.component.html',
-  styleUrls: ['./life-cycle-hooks.component.css']
+  styleUrls: ['./life-cycle-hooks.component.css'],
+  // encapsulation: ViewEncapsulation.Emulated
 })
 export class LifeCycleHooksComponent implements OnInit, OnChanges, OnDestroy, DoCheck,
   AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit {
@@ -18,6 +19,7 @@ export class LifeCycleHooksComponent implements OnInit, OnChanges, OnDestroy, Do
    }
   ngOnChanges() {
     this.lifeCylcehooksService.lCHooks.push('parent ngOnChanges');
+
   }
   ngOnInit() {
     this.lifeCylcehooksService.lCHooks.push('parent ngOnInit');

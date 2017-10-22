@@ -1,7 +1,7 @@
 import { LifeCyclehooksService } from './../../services/life-cyclehooks.service';
 import {
   Component, OnInit, OnChanges, OnDestroy, DoCheck, AfterContentChecked,
-  AfterContentInit, AfterViewChecked, AfterViewInit, Input
+  AfterContentInit, AfterViewChecked, AfterViewInit, Input, SimpleChanges
 } from '@angular/core';
 
 
@@ -19,8 +19,25 @@ AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit {
   constructor(private lifeCylcehooksService: LifeCyclehooksService) {
     this.lifeCylcehooksService.lCHooks.push('child constructor');
    }
-  ngOnChanges() {
+  // ngOnChanges() {
+  //   this.lifeCylcehooksService.lCHooks.push('child ngOnChanges');
+  // }
+  ngOnChanges(changes: SimpleChanges) {
     this.lifeCylcehooksService.lCHooks.push('child ngOnChanges');
+    if (changes.onChangeValue && !changes.onChangeValue.isFirstChange()) {
+      // exteranl API call or more preprocessing...
+    }
+    for (let propName in changes) {
+      let change = changes[propName];
+      console.dir(change);
+      if(change.isFirstChange()) {
+        console.log(`first change: ${propName}`);
+        //this.lifeCylcehooksService.lCHooks.push('child ngOnChanges : ${propName}');
+      } else {
+        console.log(`prev: ${change.previousValue}, cur: ${change.currentValue}`);
+        //this.lifeCylcehooksService.lCHooks.push('child ngOnChanges : prev: ${change.previousValue}, cur: ${change.currentValue}');
+      }
+    }
   }
   ngOnInit() {
     this.lifeCylcehooksService.lCHooks.push('child ngOnInit');

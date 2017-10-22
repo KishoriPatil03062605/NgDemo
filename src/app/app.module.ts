@@ -1,7 +1,8 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LifeCycleHooksComponent } from '../app/life-cycle-hooks/life-cycle-hooks.component';
 import { ParentChildComponent } from '../app/parent-child/parent-child.component';
@@ -16,6 +17,7 @@ import { CustomPipe } from '../app/pipes/custom.pipe';
 import { ChildComponent } from './parent-child/child/child.component';
 import { PubSubService } from '../app/services/pub-sub.service';
 import { ActivateResolveService } from '../app/services/activate-resolve.service';
+import { GenderDirective } from '../app/customDirective/genderDirective';
 
 const appRoutes: Routes = [
   {
@@ -27,7 +29,7 @@ const appRoutes: Routes = [
     component: ReactiveFormComponent
   },
   {
-    path: 'dynamic-route/:route',
+    path: 'dynamic-route/:route', // path: 'dynamic-route/:firstParam/:secondParam'
     component: DynamicRouteComponent,
     canActivate: [ActivateResolveService],
     resolve: {
@@ -43,6 +45,10 @@ const appRoutes: Routes = [
   {
     path: 'life-cycle-hooks',
     component: LifeCycleHooksComponent
+  },
+  {
+    path: 'lazy',
+    loadChildren: '../app/lazy-loading/lazy.module#LazyModule'
   },
   {
     path: 'parent-child',
@@ -67,7 +73,8 @@ const appRoutes: Routes = [
     DemoChildComponent,
     CustomPipe,
     ChildComponent,
-    ChildRouteComponent
+    ChildRouteComponent,
+    GenderDirective
   ],
   imports: [
     BrowserModule,
@@ -75,7 +82,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: false, useHash: true }
+      { enableTracing: false, useHash: true, preloadingStrategy: PreloadAllModules }
     )
   ],
   providers: [LifeCyclehooksService, PubSubService, ActivateResolveService],

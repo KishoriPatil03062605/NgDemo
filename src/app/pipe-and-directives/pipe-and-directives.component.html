@@ -25,10 +25,10 @@
         </th>
       </tr>
       <tr *ngFor="let person of persons | CustomPipe : containsChars : gender">
-        <td>
+        <td [genderDirective]="person.gender"> 
           {{person.pname}}
         </td>
-        <td>
+        <td [genderDirective]="person.gender">
           {{person.gender}}
         </td>
       </tr>
